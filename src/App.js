@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+
 import './App.css';
 
 function App() {
+  const [queue, setQueue] = useState([]);
+
+  const handleClickAdd = () => {
+    const updatedQueue = [...queue, parseInt(Math.random() * 299) + 1];
+    setQueue(updatedQueue);
+  }
+
+  const handleClickRemove = () => {
+    const updatedQueue = queue.slice(1);
+    setQueue(updatedQueue);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="box">
+        <p className="label">Queue</p>
+        <div className="box-content">
+          <div className="queue">
+            {
+              queue.map(item => (
+                <span className="number">{item}</span>
+              ))
+            }
+          </div>
+          <div className="buttons">
+            <button onClick={handleClickAdd}>Add</button>
+            <button onClick={handleClickRemove}>Remove</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

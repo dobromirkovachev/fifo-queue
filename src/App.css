@@ -1,5 +1,17 @@
+html, body, #root {
+  height: 100%;
+}
+
+#root {
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
 .App {
+  height: 100%;
   text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .App-logo {
@@ -26,6 +38,48 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.box {
+  width: 500px;
+  height: 100%;
+  border: 1px solid #000;
+  padding: 0 2rem 2rem 2rem;
+  box-sizing: border-box;
+}
+
+.box-content {
+  display: flex;
+  justify-content: space-between;
+  height: calc(100% - 1rem - 2em);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+}
+
+.buttons button {
+  margin: 0.25rem 0;
+}
+
+.number {
+  border: 1px solid #000;
+  border-top: none;
+  padding: 0.25rem;
+}
+
+.number:first-child {
+  border-top: 1px solid #000;
+}
+
+.queue {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  overflow: auto;
 }
 
 @keyframes App-logo-spin {
